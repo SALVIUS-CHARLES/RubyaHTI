@@ -17,7 +17,7 @@ const Footer = () => {
           />
           <p style={descriptionStyles}>
             RHTI is committed to train competent health workers in line with Gospel values who 
-            will promote Phisical, psychological, social and welfare of health people throughout 
+            will promote Physical, psychological, social and welfare of health people throughout 
             adequate and modern teaching learning facilities.
           </p>
           <div style={socialIconsStyles}>
@@ -42,7 +42,6 @@ const Footer = () => {
             <li style={linkItemStyles}><Link href="#features" style={linkStyles}>Features</Link></li>
             <li style={linkItemStyles}><Link href="#testimonials" style={linkStyles}>Testimonials</Link></li>
             <li style={linkItemStyles}><Link href="#contact" style={linkStyles}>Contact</Link></li>
-            
           </ul>
         </div>
         
@@ -60,6 +59,24 @@ const Footer = () => {
             <li style={contactItemStyles}>
               <span style={contactIconStyles}>✉️</span>
               <span>rubyahti@gmail.com</span>
+            </li>
+            {/* WhatsApp contact */}
+            <li style={contactItemStyles}>
+              <a 
+                href="https://wa.me/255766135315?text=Hello!%20I%20want%20to%20know%20more%20about%20RHTI"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={whatsappLinkStyles}
+              >
+                <Image 
+                  src="/images/whatsap.jpg" 
+                  alt="WhatsApp" 
+                  width={30} 
+                  height={30} 
+                  style={{ borderRadius: '50%' }}
+                />
+                &nbsp; Chat with us on WhatsApp
+              </a>
             </li>
           </ul>
         </div>
@@ -113,9 +130,6 @@ const socialIconsStyles = {
 const socialIconLinkStyles = {
   color: '#a0aec0',
   transition: 'color 0.3s ease',
-  ':hover': {
-    color: '#ffffff',
-  },
 };
 
 const socialIconStyles = {
@@ -148,9 +162,6 @@ const linkStyles = {
   color: '#a0aec0',
   textDecoration: 'none',
   transition: 'color 0.3s ease',
-  ':hover': {
-    color: '#ffffff',
-  },
 };
 
 const contactColumnStyles = {
@@ -167,7 +178,7 @@ const contactListStyles = {
 
 const contactItemStyles = {
   display: 'flex',
-  alignItems: 'flex-start',
+  alignItems: 'center',
   gap: '0.5rem',
   fontSize: '0.9rem',
   color: '#a0aec0',
@@ -176,6 +187,15 @@ const contactItemStyles = {
 
 const contactIconStyles = {
   marginTop: '0.2rem',
+};
+
+const whatsappLinkStyles = {
+  display: 'flex',
+  alignItems: 'center',
+  gap: '0.5rem',
+  textDecoration: 'none',
+  color: '#25D366',
+  fontWeight: 'bold',
 };
 
 const copyrightStyles = {

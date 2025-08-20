@@ -26,7 +26,6 @@ const ContactForm = ({ onBackToHome }) => {
     setSubmitStatus(null);
 
     try {
-      // Initialize EmailJS with your credentials
       emailjs.init("IVN_sI3Jkr_RljICU");
 
       const templateParams = {
@@ -39,7 +38,6 @@ const ContactForm = ({ onBackToHome }) => {
         subject: `New Contact Form Submission from ${formData.name}`
       };
 
-      // Send email using EmailJS
       const response = await emailjs.send(
         "service_e96vc7f",
         "template_fgwwue4",
@@ -48,7 +46,7 @@ const ContactForm = ({ onBackToHome }) => {
 
       if (response.status === 200) {
         setSubmitStatus('success');
-        setFormData({ name: '', email: '', phone: '', message: '' }); // Reset form
+        setFormData({ name: '', email: '', phone: '', message: '' });
       } else {
         throw new Error('Email sending failed');
       }
@@ -72,26 +70,23 @@ const ContactForm = ({ onBackToHome }) => {
       <div style={contentStyles}>
         <h2 style={titleStyles}>Get In Touch/Wasiliana nasi</h2>
         <p style={subtitleStyles}>
-          Have questions? Reach out to us and our institution will get back to you promptly./
+          Have questions? Reach out to us and our institution will get back to you promptly.&nbsp;
           Una maswali? Wasiliana nasi na taasisi yetu itakujibu kwa haraka.
         </p>
         
-        {/* Success Message */}
         {submitStatus === 'success' && (
           <div style={successMessageStyles}>
             <span style={messageIconStyles}>✅</span>
-            Thank you for your message! We'll get back to you within 24 hours./
+            Thank you for your message! We&apos;ll get back to you within 24 hours.&nbsp;
             Asante kwa maoni, tutakujibu haraka ndani ya masaa 24.
           </div>
         )}
 
-        {/* Error Message */}
         {submitStatus === 'error' && (
           <div style={errorMessageStyles}>
             <span style={messageIconStyles}>❌</span>
-            Sorry, there was an error sending your message. Please try again or email us directly./
-            Samahani kuna kosa wakati wa kutuma maoni yako. Tafadhali jaribu tena baadaye au tumia namba ya simu au emaili 
-            kwa msaada.
+            Sorry, there was an error sending your message. Please try again or email us directly.&nbsp;
+            Samahani kuna kosa wakati wa kutuma maoni yako. Tafadhali jaribu tena baadaye au tumia namba ya simu au emaili kwa msaada.
           </div>
         )}
 
@@ -171,7 +166,7 @@ const ContactForm = ({ onBackToHome }) => {
   );
 };
 
-// Internal CSS styles
+// ---------- Internal Styles ----------
 const containerStyles = {
   maxWidth: '800px',
   margin: '0 auto',
@@ -195,7 +190,6 @@ const backButtonStyles = {
   cursor: 'pointer',
   zIndex: 100,
   transition: 'all 0.3s ease',
-  boxShadow: '0 2px 5px rgba(0,0,0,0.2)',
   ':hover': {
     backgroundColor: '#3a5bd9',
     transform: 'translateY(-2px)',
@@ -220,7 +214,6 @@ const subtitleStyles = {
   lineHeight: '1.6',
 };
 
-// Message Styles
 const messageBaseStyles = {
   padding: '1rem',
   borderRadius: '6px',
@@ -251,7 +244,6 @@ const messageIconStyles = {
   fontSize: '1.2rem',
 };
 
-// Form Styles
 const formStyles = {
   display: 'flex',
   flexDirection: 'column',
@@ -278,15 +270,6 @@ const inputStyles = {
   borderRadius: '6px',
   fontSize: '1rem',
   transition: 'border-color 0.3s ease, box-shadow 0.3s ease',
-  ':focus': {
-    borderColor: '#4a6cf7',
-    outline: 'none',
-    boxShadow: '0 0 0 3px rgba(74, 108, 247, 0.2)',
-  },
-  ':disabled': {
-    backgroundColor: '#f7fafc',
-    cursor: 'not-allowed',
-  },
 };
 
 const textareaStyles = {
@@ -305,19 +288,11 @@ const submitButtonStyles = {
   fontWeight: '600',
   cursor: 'pointer',
   transition: 'background-color 0.3s ease, transform 0.2s ease',
-  ':hover': {
-    backgroundColor: '#3a5bd9',
-    transform: 'translateY(-2px)',
-  },
 };
 
 const disabledButtonStyles = {
   backgroundColor: '#a0aec0',
   cursor: 'not-allowed',
-  ':hover': {
-    backgroundColor: '#a0aec0',
-    transform: 'none',
-  },
 };
 
 export default ContactForm;

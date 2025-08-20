@@ -7,7 +7,7 @@ const Testimonials = () => {
     },
     {
       id: 2,
-      content: "The accommodation and meals provided by the institute make student life stress-free. It’s easier to focus on studies knowing basic needs are taken care of.",
+      content: "The accommodation and meals provided by the institute make student life stress-free. It&apos;s easier to focus on studies knowing basic needs are taken care of.",
       rating: 4
     },
     {
@@ -31,7 +31,7 @@ const Testimonials = () => {
                   <span key={i} style={starStyles}>★</span>
                 ))}
               </div>
-              <p style={contentStyles}>"{testimonial.content}"</p>
+              <p style={contentStyles}>&quot;{testimonial.content}&quot;</p>
             </div>
           ))}
         </div>

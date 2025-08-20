@@ -19,6 +19,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      {/* Apply a wrapper class but use CSS variables instead of global font */}
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         {children}
       </body>
