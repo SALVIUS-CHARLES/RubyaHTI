@@ -291,4 +291,33 @@ const disabledButtonStyles = {
   cursor: 'not-allowed',
 };
 
+// Media queries will be handled via JavaScript
+if (typeof window !== 'undefined') {
+  const mediaQuery = window.matchMedia('(max-width: 768px)');
+  
+  if (mediaQuery.matches) {
+    containerStyles.padding = '5rem 1rem 2rem';
+    backButtonStyles.top = '70px';
+    backButtonStyles.left = '10px';
+    backButtonStyles.padding = '0.5rem 0.8rem';
+    backButtonStyles.fontSize = '0.8rem';
+    titleStyles.fontSize = '2rem';
+    subtitleStyles.fontSize = '1rem';
+    subtitleStyles.marginBottom = '1.5rem';
+    messageBaseStyles.flexDirection = 'column';
+    messageBaseStyles.textAlign = 'center';
+    messageBaseStyles.padding = '0.8rem';
+    messageBaseStyles.fontSize = '0.9rem';
+    labelStyles.fontSize = '1rem';
+    inputStyles.padding = '0.8rem';
+    submitButtonStyles.padding = '0.8rem 1.2rem';
+    submitButtonStyles.fontSize = '1rem';
+  }
+  
+  const smallMediaQuery = window.matchMedia('(max-width: 480px)');
+  if (smallMediaQuery.matches) {
+    titleStyles.fontSize = '1.8rem';
+  }
+}
+
 export default ContactForm;

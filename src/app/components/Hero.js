@@ -53,7 +53,7 @@ const Hero = () => {
 // Internal CSS styles
 const heroStyles = {
   position: 'relative',
-  height: 'calc(100vh - 120px)', // Adjust based on header/footer height
+  height: 'calc(100vh - 80px)',
   width: '100%',
   overflow: 'hidden',
 };
@@ -78,7 +78,7 @@ const contentOverlayStyles = {
   height: '100%',
   display: 'flex',
   alignItems: 'center',
-  backgroundColor: 'rgba(0, 0, 0, 0.5)', // Slightly darker for better text visibility
+  backgroundColor: 'rgba(0, 0, 0, 0.5)',
 };
 
 const containerStyles = {
@@ -94,21 +94,20 @@ const contentStyles = {
 };
 
 const titleStyles = {
-  fontSize: '2.5rem',     // reduced from 3.5rem
+  fontSize: '2.5rem',
   fontWeight: '700',
   marginBottom: '1rem',
   lineHeight: '1.3',
   textShadow: '0 2px 6px rgba(0, 0, 0, 0.5)',
-  marginTop: '2rem',      // extra spacing from top so header doesn't overlap
+  marginTop: '2rem',
 };
 
 const subtitleStyles = {
-  fontSize: '1.1rem',     // reduced from 1.3rem
+  fontSize: '1.1rem',
   marginBottom: '2rem',
   textShadow: '0 2px 6px rgba(0, 0, 0, 0.5)',
   lineHeight: '1.6',
 };
-
 
 const buttonStyles = {
   display: 'inline-block',
@@ -124,11 +123,6 @@ const buttonStyles = {
   marginBottom: '1rem',
 };
 
-buttonStyles[':hover'] = {
-  backgroundColor: '#3a5bd9',
-  transform: 'translateY(-3px)',
-};
-
 const linkStyles = {
   fontSize: '1rem',
   color: '#ffffff',
@@ -140,5 +134,32 @@ const visibleLinkStyles = {
   fontWeight: '600',
   textDecoration: 'underline',
 };
+
+// Media queries will be handled via JavaScript
+if (typeof window !== 'undefined') {
+  const mediaQuery = window.matchMedia('(max-width: 768px)');
+  
+  if (mediaQuery.matches) {
+    heroStyles.height = 'calc(100vh - 70px)';
+    containerStyles.padding = '0 1rem';
+    contentStyles.textAlign = 'center';
+    contentStyles.maxWidth = '100%';
+    titleStyles.fontSize = '2rem';
+    titleStyles.marginTop = '1rem';
+    subtitleStyles.fontSize = '1rem';
+    subtitleStyles.marginBottom = '1.5rem';
+    buttonStyles.padding = '0.8rem 2rem';
+    buttonStyles.fontSize = '1.1rem';
+    linkStyles.fontSize = '0.9rem';
+  }
+  
+  const smallMediaQuery = window.matchMedia('(max-width: 480px)');
+  if (smallMediaQuery.matches) {
+    titleStyles.fontSize = '1.8rem';
+    subtitleStyles.fontSize = '0.95rem';
+    buttonStyles.padding = '0.7rem 1.5rem';
+    buttonStyles.fontSize = '1rem';
+  }
+}
 
 export default Hero;

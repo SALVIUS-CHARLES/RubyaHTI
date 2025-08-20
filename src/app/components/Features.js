@@ -138,4 +138,26 @@ const featureDescriptionStyles = {
   lineHeight: '1.6',
 };
 
+// Media queries will be handled via JavaScript
+if (typeof window !== 'undefined') {
+  const mediaQuery = window.matchMedia('(max-width: 768px)');
+  
+  if (mediaQuery.matches) {
+    containerStyles.padding = '5rem 1rem 2rem';
+    titleStyles.fontSize = '2rem';
+    subtitleStyles.fontSize = '1rem';
+    subtitleStyles.marginBottom = '2rem';
+    featureCardStyles.padding = '1.5rem';
+    featureTitleStyles.fontSize = '1.2rem';
+    featureDescriptionStyles.fontSize = '0.9rem';
+  }
+  
+  const smallMediaQuery = window.matchMedia('(max-width: 480px)');
+  if (smallMediaQuery.matches) {
+    titleStyles.fontSize = '1.8rem';
+    featuresContainerStyles.gridTemplateColumns = '1fr';
+    featuresContainerStyles.gap = '1.5rem';
+  }
+}
+
 export default Features;

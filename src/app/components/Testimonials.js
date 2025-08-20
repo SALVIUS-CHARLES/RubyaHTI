@@ -85,7 +85,7 @@ const testimonialCardStyles = {
   borderRadius: '8px',
   padding: '2rem',
   boxShadow: '0 4px 15px rgba(74, 108, 247, 0.1)',
-  border: '1px solid #e2e8f0',
+  border: '1px solid ',
 };
 
 const ratingStyles = {
@@ -104,5 +104,26 @@ const contentStyles = {
   marginBottom: '1.5rem',
   fontStyle: 'italic',
 };
+
+// Media queries will be handled via JavaScript
+if (typeof window !== 'undefined') {
+  const mediaQuery = window.matchMedia('(max-width: 768px)');
+  
+  if (mediaQuery.matches) {
+    sectionStyles.padding = '4rem 1rem';
+    titleStyles.fontSize = '2rem';
+    subtitleStyles.fontSize = '1rem';
+    subtitleStyles.marginBottom = '2rem';
+    testimonialCardStyles.padding = '1.5rem';
+    contentStyles.fontSize = '1rem';
+  }
+  
+  const smallMediaQuery = window.matchMedia('(max-width: 480px)');
+  if (smallMediaQuery.matches) {
+    titleStyles.fontSize = '1.8rem';
+    testimonialsContainerStyles.gridTemplateColumns = '1fr';
+    testimonialsContainerStyles.gap = '1.5rem';
+  }
+}
 
 export default Testimonials;

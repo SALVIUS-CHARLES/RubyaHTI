@@ -207,4 +207,26 @@ const copyrightStyles = {
   color: '#a0aec0',
 };
 
+// Media queries will be handled via JavaScript
+if (typeof window !== 'undefined') {
+  const mediaQuery = window.matchMedia('(max-width: 768px)');
+  
+  if (mediaQuery.matches) {
+    footerStyles.padding = '1.5rem 1rem';
+    containerStyles.gridTemplateColumns = '1fr';
+    containerStyles.gap = '2rem';
+    descriptionStyles.fontSize = '0.85rem';
+    columnTitleStyles.fontSize = '1.1rem';
+    columnTitleStyles.marginBottom = '1rem';
+    contactItemStyles.fontSize = '0.85rem';
+    contactItemStyles.flexDirection = 'column';
+    contactItemStyles.alignItems = 'flex-start';
+    contactItemStyles.gap = '0.3rem';
+    contactIconStyles.marginTop = '0';
+    whatsappLinkStyles.fontSize = '0.9rem';
+    copyrightStyles.marginTop = '2rem';
+    copyrightStyles.padding = '1rem 0';
+  }
+}
+
 export default Footer;
