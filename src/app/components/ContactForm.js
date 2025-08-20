@@ -64,7 +64,7 @@ const ContactForm = ({ onBackToHome }) => {
         onClick={onBackToHome}
         style={backButtonStyles}
       >
-        ← Back to Home
+        &larr; Back to Home
       </button>
       
       <div style={contentStyles}>
@@ -190,10 +190,6 @@ const backButtonStyles = {
   cursor: 'pointer',
   zIndex: 100,
   transition: 'all 0.3s ease',
-  ':hover': {
-    backgroundColor: '#3a5bd9',
-    transform: 'translateY(-2px)',
-  },
 };
 
 const contentStyles = {

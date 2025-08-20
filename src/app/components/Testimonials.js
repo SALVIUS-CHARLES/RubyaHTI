@@ -21,7 +21,9 @@ const Testimonials = () => {
     <section id="testimonials" style={sectionStyles}>
       <div style={containerStyles}>
         <h2 style={titleStyles}>What Our Students Say</h2>
-        <p style={subtitleStyles}>Real experiences from those who have studied at Rubya Health Training Institute.</p>
+        <p style={subtitleStyles}>
+          Real experiences from those who have studied at Rubya Health Training Institute.
+        </p>
         
         <div style={testimonialsContainerStyles}>
           {testimonials.map((testimonial) => (
