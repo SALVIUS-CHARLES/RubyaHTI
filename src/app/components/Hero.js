@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-const Hero = ({ onGetStarted }) => {
+const Hero = () => {
   return (
     <section style={heroStyles}>
       {/* Background Image */}
@@ -27,20 +27,12 @@ const Hero = ({ onGetStarted }) => {
               and hands-on training that serves communities across Tanzania.
             </p>
             
-            {/* Get Started Button */}
-            <button 
-              onClick={onGetStarted}
-              style={buttonStyles}
-            >
-              Get Started
-            </button>
-
             {/* Apply Now Button */}
             <a 
               href="http://www.rhti.ac.tz" 
               target="_blank" 
               rel="noopener noreferrer"
-              style={secondaryButtonStyles}
+              style={buttonStyles}
             >
               Apply Now
             </a>
@@ -128,16 +120,7 @@ const buttonStyles = {
   fontWeight: '600',
   cursor: 'pointer',
   transition: 'background-color 0.3s ease, transform 0.2s ease',
-  marginRight: '1rem',
   marginBottom: '1rem',
-  border: 'none',
-};
-
-const secondaryButtonStyles = {
-  ...buttonStyles,
-  backgroundColor: 'transparent',
-  border: '2px solid #4a6cf7',
-  color: '#4a6cf7',
 };
 
 const linkStyles = {
@@ -167,8 +150,6 @@ if (typeof window !== 'undefined') {
     subtitleStyles.marginBottom = '1.5rem';
     buttonStyles.padding = '0.8rem 2rem';
     buttonStyles.fontSize = '1.1rem';
-    secondaryButtonStyles.padding = '0.8rem 2rem';
-    secondaryButtonStyles.fontSize = '1.1rem';
     linkStyles.fontSize = '0.9rem';
   }
   
@@ -178,10 +159,6 @@ if (typeof window !== 'undefined') {
     subtitleStyles.fontSize = '0.95rem';
     buttonStyles.padding = '0.7rem 1.5rem';
     buttonStyles.fontSize = '1rem';
-    buttonStyles.marginRight = '0.5rem';
-    buttonStyles.marginBottom = '0.5rem';
-    secondaryButtonStyles.padding = '0.7rem 1.5rem';
-    secondaryButtonStyles.fontSize = '1rem';
   }
 }
 

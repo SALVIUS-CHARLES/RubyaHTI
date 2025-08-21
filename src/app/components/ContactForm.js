@@ -1,7 +1,6 @@
 "use client";
 import { useState } from 'react';
 import emailjs from '@emailjs/browser';
-import BackToHome from './BackToHome';
 
 const ContactForm = ({ onBackToHome }) => {
   const [formData, setFormData] = useState({
@@ -61,7 +60,12 @@ const ContactForm = ({ onBackToHome }) => {
 
   return (
     <div style={containerStyles}>
-      <BackToHome onClick={onBackToHome} />
+      <button 
+        onClick={onBackToHome}
+        style={backButtonStyles}
+      >
+        &larr; Back to Home
+      </button>
       
       <div style={contentStyles}>
         <h2 style={titleStyles}>Get In Touch/Wasiliana nasi</h2>
@@ -172,6 +176,22 @@ const containerStyles = {
   position: 'relative',
 };
 
+const backButtonStyles = {
+  position: 'absolute',
+  top: '80px',
+  left: '20px',
+  backgroundColor: '#4a6cf7',
+  color: 'white',
+  border: 'none',
+  padding: '0.6rem 1rem',
+  borderRadius: '4px',
+  fontSize: '0.9rem',
+  fontWeight: '500',
+  cursor: 'pointer',
+  zIndex: 100,
+  transition: 'all 0.3s ease',
+};
+
 const contentStyles = {
   textAlign: 'center',
 };
@@ -277,6 +297,10 @@ if (typeof window !== 'undefined') {
   
   if (mediaQuery.matches) {
     containerStyles.padding = '5rem 1rem 2rem';
+    backButtonStyles.top = '70px';
+    backButtonStyles.left = '10px';
+    backButtonStyles.padding = '0.5rem 0.8rem';
+    backButtonStyles.fontSize = '0.8rem';
     titleStyles.fontSize = '2rem';
     subtitleStyles.fontSize = '1rem';
     subtitleStyles.marginBottom = '1.5rem';

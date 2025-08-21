@@ -1,6 +1,4 @@
-import BackToHome from './BackToHome';
-
-const Testimonials = ({ onBackToHome }) => {
+const Testimonials = () => {
   const testimonials = [
     {
       id: 1,
@@ -9,7 +7,7 @@ const Testimonials = ({ onBackToHome }) => {
     },
     {
       id: 2,
-      content: "The accommodation and meals provided by the institute make student life stress-free. It's easier to focus on studies knowing basic needs are taken care of.",
+      content: "The accommodation and meals provided by the institute make student life stress-free. It&apos;s easier to focus on studies knowing basic needs are taken care of.",
       rating: 4
     },
     {
@@ -21,7 +19,6 @@ const Testimonials = ({ onBackToHome }) => {
 
   return (
     <section id="testimonials" style={sectionStyles}>
-      <BackToHome onClick={onBackToHome} />
       <div style={containerStyles}>
         <h2 style={titleStyles}>What Our Students Say</h2>
         <p style={subtitleStyles}>
@@ -52,7 +49,6 @@ const sectionStyles = {
   minHeight: '100vh',
   display: 'flex',
   alignItems: 'center',
-  position: 'relative',
 };
 
 const containerStyles = {
@@ -89,7 +85,7 @@ const testimonialCardStyles = {
   borderRadius: '8px',
   padding: '2rem',
   boxShadow: '0 4px 15px rgba(74, 108, 247, 0.1)',
-  border: '1px solid #e2e8f0',
+  border: '1px solid ',
 };
 
 const ratingStyles = {
