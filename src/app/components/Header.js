@@ -70,6 +70,14 @@ const Header = ({ setCurrentSection }) => {
           </ul>
         </nav>
       </div>
+      
+      {/* Mobile overlay when menu is open */}
+      {isMenuOpen && (
+        <div 
+          style={overlayStyles}
+          onClick={() => setIsMenuOpen(false)}
+        />
+      )}
     </header>
   );
 };
@@ -81,6 +89,7 @@ const headerStyles = {
   width: '100%',
   zIndex: 1000,
   top: 0,
+  boxShadow: '0 2px 10px rgba(0, 0, 0, 0.1)',
 };
 
 const containerStyles = {
@@ -90,11 +99,13 @@ const containerStyles = {
   padding: '1rem 2rem',
   maxWidth: '1200px',
   margin: '0 auto',
+  position: 'relative',
 };
 
 const logoContainerStyles = {
   display: 'flex',
   alignItems: 'center',
+  zIndex: 1001,
 };
 
 const logoStyles = {
@@ -108,6 +119,7 @@ const menuButtonStyles = {
   fontSize: '1.5rem',
   cursor: 'pointer',
   padding: '0.5rem',
+  zIndex: 1001,
 };
 
 const menuIconStyles = {
@@ -116,19 +128,19 @@ const menuIconStyles = {
 
 const navStyles = {
   display: 'flex',
+  transition: 'all 0.3s ease',
 };
 
 const mobileNavOpenStyles = {
+  display: 'flex',
   position: 'absolute',
   top: '100%',
   left: 0,
   right: 0,
   backgroundColor: '#ffffff',
   flexDirection: 'column',
-  padding: '1rem',
-  transform: 'translateY(0)',
-  opacity: 1,
-  visibility: 'visible',
+  padding: '1rem 2rem',
+  boxShadow: '0 5px 15px rgba(0, 0, 0, 0.1)',
 };
 
 const ulStyles = {
@@ -155,9 +167,18 @@ const navButtonStyles = {
   transition: 'all 0.3s ease',
 };
 
-// Media queries will be handled via JavaScript
+const overlayStyles = {
+  position: 'fixed',
+  top: 0,
+  left: 0,
+  right: 0,
+  bottom: 0,
+  backgroundColor: 'rgba(0, 0, 0, 0.5)',
+  zIndex: 999,
+};
+
+// Media queries
 if (typeof window !== 'undefined') {
-  // This will only run on client side
   const mediaQuery = window.matchMedia('(max-width: 768px)');
   
   if (mediaQuery.matches) {
@@ -166,23 +187,32 @@ if (typeof window !== 'undefined') {
     logoStyles.width = '100px';
     logoStyles.height = '40px';
     menuButtonStyles.display = 'block';
+    
+    navStyles.display = 'none';
     navStyles.position = 'absolute';
     navStyles.top = '100%';
     navStyles.left = 0;
     navStyles.right = 0;
     navStyles.backgroundColor = '#ffffff';
     navStyles.flexDirection = 'column';
-    navStyles.padding = '1rem';
-    navStyles.transform = 'translateY(-10px)';
-    navStyles.opacity = 0;
-    navStyles.visibility = 'hidden';
-    navStyles.transition = 'all 0.3s ease';
+    navStyles.padding = '1rem 2rem';
+    navStyles.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
+    navStyles.zIndex = 1000;
+    
     ulStyles.flexDirection = 'column';
-    ulStyles.gap = '0.5rem';
+    ulStyles.gap = '0';
+    ulStyles.width = '100%';
+    
     liStyles.width = '100%';
+    liStyles.marginBottom = '0.5rem';
+    
     navButtonStyles.width = '100%';
     navButtonStyles.textAlign = 'left';
     navButtonStyles.padding = '0.8rem 1rem';
+    navButtonStyles.borderRadius = '4px';
+    
+    // Show menu when open
+    mobileNavOpenStyles.display = 'flex';
   }
 }
 

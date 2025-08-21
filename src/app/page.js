@@ -27,15 +27,6 @@ export default function Home() {
     return () => window.removeEventListener('resize', checkIsMobile);
   }, []);
 
-  const handleGetStarted = () => {
-    setCurrentSection('features');
-    // Smooth scroll to top in case page was scrolled
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  };
-
   return (
     <>
       <Head>
