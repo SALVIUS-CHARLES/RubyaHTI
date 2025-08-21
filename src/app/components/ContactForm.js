@@ -73,7 +73,7 @@ const ContactForm = ({ onBackToHome }) => {
         {submitStatus === 'success' && (
           <div style={successMessageStyles}>
             <span style={messageIconStyles}>✅</span>
-            Thank you for your message! We'll get back to you within 24 hours.&nbsp;
+            Thank you for your message! We&apos;ll get back to you within 24 hours.&nbsp;
             Asante kwa maoni, tutakujibu haraka ndani ya masaa 24.
           </div>
         )}
